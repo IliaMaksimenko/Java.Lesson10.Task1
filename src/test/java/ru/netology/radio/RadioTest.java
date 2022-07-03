@@ -51,8 +51,7 @@ public class RadioTest {
     public void shouldSetPlusVolume(int volume, int expected) {
         Radio state = new Radio();
 
-        state.currentVolume = volume;
-        state.volumePlus();
+        state.volumePlus(volume);
         int actual = state.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -64,8 +63,7 @@ public class RadioTest {
     public void shouldSetMinusVolume(int volume, int expected) {
         Radio state = new Radio();
 
-        state.currentVolume = volume;
-        state.volumeMinus();
+        state.volumeMinus(volume);
         int actual = state.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
