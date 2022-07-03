@@ -11,7 +11,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/OptionsSwitchStation.csv")
     public void shouldSetStation(int station, int expected) {
-        Radio state = new Radio();
+        Radio state = new Radio(16);
 
         state.setStation(station);
         int actual = state.getCurrentStation();
@@ -23,7 +23,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/OptionsNextStation.csv")
     public void shouldSetNextStation(int station, int expected) {
-        Radio state = new Radio();
+        Radio state = new Radio(20);
 
         state.setStation(station);
         state.nextStation();
@@ -51,8 +51,7 @@ public class RadioTest {
     public void shouldSetPlusVolume(int volume, int expected) {
         Radio state = new Radio();
 
-        state.currentVolume = volume;
-        state.volumePlus();
+        state.volumePlus(volume);
         int actual = state.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -64,8 +63,7 @@ public class RadioTest {
     public void shouldSetMinusVolume(int volume, int expected) {
         Radio state = new Radio();
 
-        state.currentVolume = volume;
-        state.volumeMinus();
+        state.volumeMinus(volume);
         int actual = state.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
